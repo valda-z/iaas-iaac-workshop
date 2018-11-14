@@ -43,6 +43,8 @@ az network vnet subnet create -g ${RESOURCE_GROUP} --vnet-name ${VNET} -n ${SUBN
 
 ### Create jumpbox
 
+To create SSH key you can use: `ssh-keygen -t rsa -b 4096 -C "your_email@example.com"`
+
 ```bash
 # my public ssh-key
 export MYSSHKEY="xxxxxxxxxxxx"
