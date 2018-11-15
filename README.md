@@ -165,13 +165,13 @@ These scripts configure Application gateway to route traffic from https endpoint
 ```bash
 # configure backend servers
 az network application-gateway address-pool create \
-  --no-wait
+  --no-wait \
   --resource-group ${RESOURCE_GROUP} \
   --gateway-name appgw \
   -n MyAddressPool \
   --servers 10.0.10.100
 
-# Create SSL cert (in folder where mycert.pfx is located)
+# Create SSL cert (in folder where mycert.pfx is located) 
 az network application-gateway ssl-cert create \
   --no-wait \
   --resource-group ${RESOURCE_GROUP} \
@@ -179,6 +179,8 @@ az network application-gateway ssl-cert create \
   -n MySslCert \
   --cert-file mycert.pfx \
   --cert-password "pwd123..."
+  
+# after this step wait for aprox 10 minutes - cert has to be deployed to AppGW in background
 
 # Create FronEnd port (have to wait for load SSL cert)
 az network application-gateway frontend-port create \
